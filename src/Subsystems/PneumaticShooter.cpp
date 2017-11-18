@@ -42,3 +42,44 @@ void PneumaticShooter::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+void PneumaticShooter::Shoot(int position) {
+	if (position==0) {
+		// shoot left
+		leftShooter->Set(true);
+		printf("Shooting Left Cannon\n");
+	} else if (position==1) {
+		// shoot middle
+		middleShooter->Set(true);
+		printf("Shooting Middle Cannon\n");
+	} else if (position==2) {
+		// shoot right
+		rightShooter->Set(true);
+		printf("Shooting Right Cannon\n");
+	} else if (position==3) {
+		// reset
+		leftShooter->Set(false);
+		middleShooter->Set(false);
+		rightShooter->Set(false);
+		printf("Resetting Cannons\n");
+	} else {
+		printf("Invalid Value: %i\n",position);
+	}
+
+/*	switch (position) {
+	case 0:
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		leftShooter->Set(false);
+		middleShooter->Set(false);
+		rightShooter->Set(false);
+		break;
+	default:
+		printf("Invalid Value: %i\n",position);
+		break;
+	}
+*/
+}
